@@ -1,11 +1,13 @@
-/* Reset */
+/*------------------------------ Reset ------------------------------ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-color: #000 #dbdbd1;
 }
+ 
 
-/* Local fonts */
+/* ----------------------------Local fonts------------------------------------------- */
 @font-face {
   font-family: "Humane";
   src: url("../fonts/Humane-Regular.woff") format("woff");
@@ -23,8 +25,10 @@
 }
 
 
-/* Body */
+/*---------------------------------Body---------------------------------------------*/
 body { 
+    overflow-x: hidden;
+    overflow-y: scroll;
   background-color: #dbdbd1 ;
   position: relative;
   color: #000;
@@ -33,8 +37,9 @@ body {
   flex-direction: column;
   font-family: "Bebas Neue", sans-serif;
   padding: 50px 10px 0;
+  text-align: center;
 }
-/*--------noise----------*/
+/*-------------------------------------noise-----------------------------------------------------*/
 body::before {
   content: "";
   position: fixed;
@@ -42,13 +47,14 @@ body::before {
   background-image: url("../images/noise.png");
   background-repeat: repeat;
   background-size: 128px 128px; /* if exported at 256x256 */
-  opacity: 0.12;
+  opacity: 0.15;
   mix-blend-mode: multiply;
   pointer-events: none;
 }
 
 
-/* Header */
+
+/*-------------------------------------------------------Header ------------------*/
 header {
   display: grid;
   place-content: center;
@@ -62,12 +68,15 @@ header {
 }
 
 /* Main Heading */
-h1 {
-  font-size: 25rem;
+h1,h2,h3,h4,h5,h6 {
   font-family: "Humane", sans-serif;
 }
+h2{
+  font-size: 5rem;
+}
 .Heading {
-  display: flex;
+  font-size: 13rem;
+ 
 }
 
 /* Loader */
@@ -82,7 +91,156 @@ h1 {
   font-size: 5rem;
 }
 
-/*------------------------------- -  Animations ------------------------*/
+/*----------------------------------------Navigation-----------------------------------------*/
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem 1rem;
+  z-index: 1000;
+ 
+}
+
+/* Lay items side-by-side with no gap; we'll insert the "/" via CSS */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0; /* remove spacing; separator handles it */
+  align-items: center;
+}
+
+/* Add the slash only between items */
+nav ul li + li::before {
+  content: " ";
+  display: inline-block;
+  margin: 0 0.5rem; /* controls space around the slash */
+  color: #000000;
+  opacity: 0.8;
+}
+ 
+/* Links */
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  padding-bottom: 2px; /* space for underline */
+
+  transition: none;
+}
+
+/* Sliding underline on hover/focus */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease; /* controls slide speed */
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus-visible::after {
+  transform: scaleX(1);
+}
+.qrcode {
+  display: flex;
+  justify-content: center;
+ 
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+/* Cursor follower (make sure it doesn't break layout) */
+
+.follower {
+    position: absolute;
+    width: 30px;                   /* Diameter of the outer circle */
+    height: 30px;
+    border: 1px solid #000000;     /* Border color for outer circle */
+    border-radius: 50%;            /* Make it circular */
+    pointer-events: none;          /* Allow pointer events to pass through */
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;      
+    transition: width 0.3s ease, height 0.3s ease           /* Ensure it's always in front */
+}
+
+
+/* Inner circle with a fill color */
+.inner-circle {
+    width: 6px;                    /* Smaller diameter for inner circle */
+    height: 6px;
+    background-color: #000000;     /* Fill color for inner circle */
+    border-radius: 50%;            /* Make it circular */
+    position: absolute;            /* Position it absolutely within .follower */
+    top: 50%;                      /* Center within outer circle */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;                 /* Ensure inner circle stays on top */
+}
+.outer-circle {
+    position: absolute;
+    width: 310px; /* Slightly larger than the image */
+    height: 310px;
+    border: 1px solid #000000; /* Stroke color */
+    border-radius: 50%; /* Makes it a circular stroke */
+    z-index: 0; /* Keeps outer circle below the profile image */
+}
+/*------------------------------------Footer.-----------------------*/
+footer {
+ position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* tighter horizontal padding so the right text goes further right */
+  padding: 10px 20px;         /* was 10px 40px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: #3a3a3a;
+  letter-spacing: 1px;
+  /* establish a known height for spacing the icons */
+  min-height: 44px;
+  z-index: 1000;           
+}
+.contact-info {
+  position: fixed;
+  right: 20px;
+  bottom: calc(44px + 20px);  /* footer height + gap so they don't interfere */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2000;              /* above footer so no overlap issues */
+}
+
+.contact-icon img {
+  width: 20px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.contact-icon:hover img { transform: scale(1.1); }
+
+ 
+ 
+.contact-icon img {
+    border-radius: 5px;
+ 
+}
+/*------------------------------- -  Animations --------------------------------------------*/
 .drag-down {
   animation: slideUp 0.7s ease forwards;
 }
