@@ -26,6 +26,9 @@
 
 
 /*---------------------------------Body---------------------------------------------*/
+main {
+  flex: 1;               /* pushes footer to bottom if content is short */
+}
 body { 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -36,8 +39,9 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Bebas Neue", sans-serif;
-  padding: 50px 10px 0;
+ padding: 50px 0 0; /* was 50px 10px 0 */
   text-align: center;
+  height: 100%;
 }
 /*-------------------------------------noise-----------------------------------------------------*/
 body::before {
@@ -92,45 +96,59 @@ h2{
 }
 
 /*----------------------------------------Navigation-----------------------------------------*/
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 1rem 1rem;
-  z-index: 1000;
  
+.logo {
+  width: 40px;
+  height: 40px;
 }
 
-/* Lay items side-by-side with no gap; we'll insert the "/" via CSS */
+/* Navbar container */
+nav {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 10px;
+  /* existing blur + tint */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  /* create a stacking context so ::before/::after stay inside */
+  isolation: isolate;
+}
+
+/* Noise layer inside nav to mirror body::before */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/noise.png");
+  background-repeat: repeat;
+  background-size: 128px 128px; /* same as body */
+  opacity: 0.15;                /* same as body */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: -1;                  /* sit under nav content */
+}
+/* Navigation list */
 nav ul {
   list-style: none;
+  display: flex;
+  gap: 2rem; /* space between ABOUT and PROJECTS */
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 0; /* remove spacing; separator handles it */
   align-items: center;
 }
 
-/* Add the slash only between items */
-nav ul li + li::before {
-  content: " ";
-  display: inline-block;
-  margin: 0 0.5rem; /* controls space around the slash */
-  color: #000000;
-  opacity: 0.8;
-}
- 
 /* Links */
 nav ul li a {
-  position: relative;
   text-decoration: none;
   color: #000000;
-  padding-bottom: 2px; /* space for underline */
-
-  transition: none;
+  position: relative;
+  padding-bottom: 2px;
 }
 
-/* Sliding underline on hover/focus */
+/* Underline animation */
 nav ul li a::after {
   content: "";
   position: absolute;
@@ -141,19 +159,45 @@ nav ul li a::after {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.45s ease; /* controls slide speed */
+  transition: transform 0.45s ease;
 }
 
 nav ul li a:hover::after,
 nav ul li a:focus-visible::after {
   transform: scaleX(1);
 }
+
 .qrcode {
   display: flex;
   justify-content: center;
- 
+  padding-bottom: 50px;
 }
 
+/*--------------------------------------About Section --------------------------------------------*/
+.about-section{
+  height: 1000px;
+  background-color: black;
+  color: #dbdbd1;
+  width: 100%;
+}
+/* start hidden & slightly shifted */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+/* when visible */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; transform: none; }
+}
 
 
 
@@ -199,21 +243,15 @@ nav ul li a:focus-visible::after {
 }
 /*------------------------------------Footer.-----------------------*/
 footer {
- position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* tighter horizontal padding so the right text goes further right */
-  padding: 10px 20px;         /* was 10px 40px */
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 10px;
   color: #3a3a3a;
   letter-spacing: 1px;
-  /* establish a known height for spacing the icons */
   min-height: 44px;
-  z-index: 1000;           
+  background: white;
 }
 .contact-info {
   position: fixed;

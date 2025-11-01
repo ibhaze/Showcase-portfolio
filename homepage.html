@@ -14,7 +14,8 @@
 </head>
 
 <body class="homepage">
-    <div class="follower">
+    <main>
+         <div class="follower">
         <div class="inner-circle"></div>
     </div>
     <div class="contact-info">
@@ -29,6 +30,7 @@
         </a>
     </div>
     <nav>
+            <a href="index.html"><img class="logo" src="images/Logo.svg" ></a>
         <ul>
             <li> <a href="#">ABOUT</a></li>
             <li><a href="#">PROJECTS</a></li>
@@ -60,13 +62,43 @@
         </section>
 
     </div>
-    <div class="about-section">
+    <div class="about-section dark-section reveal">
 
     </div>
+    </main>
+   
     <Footer>
         <span class="left">DIRECTED BY PRAISE IBHAZE</span>
         <span class="right">2025 ©</span>
     </Footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.reveal');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible'); // 👈 this makes it repeat
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15
+    });
+
+    els.forEach(el => observer.observe(el));
+  });
+</script>
+
+
 </body>
 
 </html>
