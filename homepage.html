@@ -33,7 +33,7 @@
             <a href="index.html"><img class="logo" src="images/Logo.svg" ></a>
         <ul>
             <li> <a href="#">ABOUT</a></li>
-            <li><a href="#">PROJECTS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
         </ul>
     </nav>
     <div class="fade-in">
@@ -62,8 +62,8 @@
         </section>
 
     </div>
-    <div class="about-section dark-section reveal">
-
+    <div id="projects" class="projects-section dark-section reveal">
+        <h2>PROJECTS</h2>
     </div>
     </main>
    
@@ -86,7 +86,7 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
         } else {
-          entry.target.classList.remove('is-visible'); // 👈 this makes it repeat
+          entry.target.classList.remove('is-visible'); //  this makes it repeat
         }
       });
     }, {

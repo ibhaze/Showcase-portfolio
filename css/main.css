@@ -174,7 +174,7 @@ nav ul li a:focus-visible::after {
 }
 
 /*--------------------------------------About Section --------------------------------------------*/
-.about-section{
+.projects-section{
   height: 1000px;
   background-color: black;
   color: #dbdbd1;
@@ -201,46 +201,45 @@ nav ul li a:focus-visible::after {
 
 
 
-/*---------------------------------------------------------------------------------------------*/
-
-/* Cursor follower (make sure it doesn't break layout) */
-
+/*--/* Cursor follower (make sure it doesn't break layout) */
 .follower {
-    position: absolute;
-    width: 30px;                   /* Diameter of the outer circle */
-    height: 30px;
-    border: 1px solid #000000;     /* Border color for outer circle */
-    border-radius: 50%;            /* Make it circular */
-    pointer-events: none;          /* Allow pointer events to pass through */
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;      
-    transition: width 0.3s ease, height 0.3s ease           /* Ensure it's always in front */
+  position: absolute;
+  width: 30px;                /* Diameter of the outer circle */
+  height: 30px;
+  border: 1px solid #000000;  /* Border color for outer circle (JS updates this) */
+  border-radius: 50%;         /* Make it circular */
+  pointer-events: none;       /* Allow pointer events to pass through */
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;              /* Ensure it's always in front */
+  transition: width 0.3s ease, height 0.3s ease;
 }
-
 
 /* Inner circle with a fill color */
 .inner-circle {
-    width: 6px;                    /* Smaller diameter for inner circle */
-    height: 6px;
-    background-color: #000000;     /* Fill color for inner circle */
-    border-radius: 50%;            /* Make it circular */
-    position: absolute;            /* Position it absolutely within .follower */
-    top: 50%;                      /* Center within outer circle */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;                 /* Ensure inner circle stays on top */
+  width: 6px;                 /* Smaller diameter for inner circle */
+  height: 6px;
+  background-color: #000000;  /* JS updates this dynamically */
+  border-radius: 50%;         /* Make it circular */
+  position: absolute;         /* Position within .follower */
+  top: 50%;                   /* Center within outer circle */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;              /* Ensure inner circle stays on top */
 }
+
+/* Optional: outer-circle decorative ring you had */
 .outer-circle {
-    position: absolute;
-    width: 310px; /* Slightly larger than the image */
-    height: 310px;
-    border: 1px solid #000000; /* Stroke color */
-    border-radius: 50%; /* Makes it a circular stroke */
-    z-index: 0; /* Keeps outer circle below the profile image */
+  position: absolute;
+  width: 310px;               /* Slightly larger than the image */
+  height: 310px;
+  border: 1px solid #000000;  /* Stroke color */
+  border-radius: 50%;         /* Makes it a circular stroke */
+  z-index: 0;                 /* Keeps outer circle below the profile image */
 }
+
 /*------------------------------------Footer.-----------------------*/
 footer {
   padding: 10px 20px;
