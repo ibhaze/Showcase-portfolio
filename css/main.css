@@ -167,6 +167,19 @@ nav ul li a:focus-visible::after {
   transform: scaleX(1);
 }
 
+/* --- Nav color swap when over dark backgrounds --- */
+nav.dark-mode ul li a {
+  color: #dbdbd1;
+  transition: color 0.25s ease;
+}
+
+/* If your logo SVG is black, this filter approximates #dbdbd1 */
+nav.dark-mode .logo {
+  filter: brightness(0) saturate(100%) invert(90%) sepia(4%) saturate(348%)
+          hue-rotate(12deg) brightness(94%) contrast(90%);
+  transition: filter 0.25s ease;
+}
+
 .qrcode {
   display: flex;
   justify-content: center;
@@ -250,7 +263,7 @@ footer {
   color: #3a3a3a;
   letter-spacing: 1px;
   min-height: 44px;
-  background: white;
+ 
 }
 .contact-info {
   position: fixed;
@@ -262,7 +275,24 @@ footer {
   gap: 8px;
   z-index: 2000;              /* above footer so no overlap issues */
 }
+/* default: icons render as black on light backgrounds */
+.contact-icon img {
+  filter: brightness(0) saturate(100%);
+  transition: transform 0.3s ease-in-out, filter 0.25s ease;
+}
 
+/* when the icons overlap a dark section, tint to #dbdbd1 */
+.contact-info.icons-on-dark img {
+  /* approximation of #dbdbd1 from black */
+  filter: brightness(0) saturate(100%)
+          invert(90%) sepia(4%) saturate(348%)
+          hue-rotate(12deg) brightness(94%) contrast(90%);
+}
+
+/* optional semantic class for clarity */
+.contact-info.icons-on-light img {
+  filter: brightness(0) saturate(100%);
+}
 .contact-icon img {
   width: 20px;
   transition: transform 0.3s ease-in-out;
@@ -273,10 +303,6 @@ footer {
 
  
  
-.contact-icon img {
-    border-radius: 5px;
- 
-}
 /*------------------------------- -  Animations --------------------------------------------*/
 .drag-down {
   animation: slideUp 0.7s ease forwards;
