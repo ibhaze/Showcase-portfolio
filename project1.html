@@ -36,16 +36,81 @@
                 <li><a href="#projects">PROJECTS</a></li>
             </ul>
         </nav>
-        <div class="fade-in">
+        <div class="project-main">
+
+            <div class="project-intro">
+                <div class="projecthead">
+                    <h2>WISH 'N TOSS</h2>
+                    <p>A TOY EXCHANGE APP FOR USED TOYS </p>
+                </div>
+                <div class="tools">
+                    <p class="section-title">Roles & Tools Used</p>
+
+                    <div class="tools-row">
+                        <div class="tools-container">
+                            <div class="text-block">
+                                <h2>USER INTF.</h2>
+                                <p>Designed a smooth functional user centric interface</p>
+                            </div>
+                            <img src="images/figma.svg" alt="Figma Logo" class="tools-logo">
+                        </div>
+
+                        <div class="tools-container">
+                            <div class="text-block">
+                                <h2>MOBILE DEV</h2>
+                                <p>Coded and created a working application</p>
+                            </div>
+                            <img src="images/flutter.svg" alt="Flutter Logo" class="tools-logo">
+                        </div>
+
+                        <div class="tools-container">
+                            <div class="text-block">
+                                <h2>USER EXP.</h2>
+                                <p>Mapped out user journeys, scenarios, built around them</p>
+                            </div>
+                            <img src="images/road.svg" alt="Road Icon" class="tools-logo">
+                        </div>
+                    </div>
+                </div>
+                <!-- Reveal Section 1 -->
+                <section class="scroll-section" id="process">
+                    <div class="section-wrap">
+                        <h2>Process</h2>
+                        <p>
+                            The aim of this app is to encourage upcycling and recycling of toys , It
+                            connects people who dont need their toys with people who are in need of specific
+                            types of toys
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Reveal Section 2 -->
+                <section class="scroll-section" id="process">
+                    <div class="section-wrap">
+                        <h2>Outcomes</h2>
+                        <p>
+                            Key results, learnings, and next steps based on the project’s goals and user feedback.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <p>
+
+            </p>
+            <img class="mypic" src="images/portrait.jpg">
 
 
+
+            <a href="project2.html" class="projectchanger">
+                <span class="next">Next</span>
+                <h3>PROJECT 2</h3>
+            </a>
 
         </div>
 
-        <h2>NEXT PROJECT</h2>
-        <ul>
-            <li><a href="project2.html">project 2</a></li>
-        </ul>
+
 
     </main>
 
@@ -53,6 +118,72 @@
         <span class="left">DIRECTED BY PRAISE IBHAZE</span>
         <span class="right">2025 ©</span>
     </Footer>
+    <script>
+        (function () {
+            // Reveal generic sections (replay on back/forward scroll)
+            const revealables = document.querySelectorAll('.reveal');
+
+            const sectionsObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        } else {
+                            entry.target.classList.remove('is-visible'); // allows replay
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -10% 0px'
+                }
+            );
+
+            revealables.forEach(el => sectionsObserver.observe(el));
+
+            // Stagger each tools card
+            const toolCards = document.querySelectorAll('.tools-container');
+            toolCards.forEach((card, idx) => card.setAttribute('data-stagger', idx));
+
+            // Observe each card individually so they replay when you revisit the first screen
+            const cardObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        } else {
+                            entry.target.classList.remove('is-visible'); // replay on return
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
+
+            toolCards.forEach(card => cardObserver.observe(card));
+        })();
+
+    </script>
+    <script>
+        // Scroll reveal that replays when you scroll up/down
+        const scrollSections = document.querySelectorAll('.scroll-section');
+
+        const scrollObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-visible');
+                    } else {
+                        entry.target.classList.remove('scroll-visible'); // replay on return
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        scrollSections.forEach(section => scrollObserver.observe(section));
+    </script>
+
 
 </body>
 
