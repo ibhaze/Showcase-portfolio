@@ -37,7 +37,6 @@
             </ul>
         </nav>
         <div class="fade-in">
-
             <section class="Heading">
                 <h1> CREATIVE DESIGNER</h1>
             </section>
@@ -45,64 +44,85 @@
                 <p>MOBILE DEVELOPMENT</p>
                 <p>WEB DEVELOPMENT</p>
                 <p>UI/UX DESIGN </p>
-                <img src="" alt="" width="70px">
                 <h2>CONTACT ME</h2>
-                <a href="mailto:ibhazepraise7@gmail.com" class="qrcode-link">
-                    <div class="qrcode"></div>
-                </a>
+                <div class="qrcode">
+
+                </div>
                 <script type="text/javascript">
                     const qrcodeEl = document.querySelector(".qrcode");
                     const qrcode = new QRCode(qrcodeEl, {
-                        text: "mailto:ibhazepraise7@gmail.com",
+                        text: "tel:+31687013161",
                         width: 100,
                         height: 100,
                         colorDark: "#000",
                         colorLight: "#0000",
                         correctLevel: QRCode.CorrectLevel.H,
                     });
-
                 </script>
             </section>
 
-
-
         </div>
-        <div id="projects">
-            <h2>PROJECTS</h2>
-            <ul>
-                <li><a href="project1.html">project 1</a></li>
-                <li><a href="project2.html">project 2</a></li>
-                <li><a href="project3.html">project 3</a></li>
-            </ul>
+        <div class="project-section dark-section reveal" id="projects">
+            <div id="projects">
+                <h2>PROJECTS</h2>
+                <ul>
+                    <li><a href="project1.html">project 1</a></li>
+                    <li><a href="project2.html">project 2</a></li>
+                    <li><a href="project3.html">project 3</a></li>
+                </ul>
+            </div>
         </div>
-        <div id="about">
+
+        <div class="about-section dark-section reveal" id="about">
             <h2>ABOUT ME </h2>
-            <p>
-                WHAT IS UX TO ME?
-                At first it was simple , ‘just design stuff’ but I got to learn that UX design was a lot more than
-                getting a canvas and scribbling on it ...sure that’d help my UI design skills but I got to learn to put
-                myself in the shoes of Users , and overtime consider whether my ideas brought about gain or loss both
-                for the users and other stakeholders and my Idea of what it is now it creating solutions that balance
-                both sides although one will have to give way to the other sometimes but this is what it is ....
-
-
+            <p> WHAT IS UX TO ME? At first it was simple , ‘just design stuff’ but I got to learn that UX design was a
+                lot more than getting a canvas and scribbling on it ...sure that’d help my UI design skills but I got to
+                learn to put myself in the shoes of Users , and overtime consider whether my ideas brought about gain or
+                loss both for the users and other stakeholders and my Idea of what it is now it creating solutions that
+                balance both sides although one will have to give way to the other sometimes but this is what it is ....
                 Mobile development was something I also picked up along the way , the first time I worked with flutter,
-                I couldn’t believe coding could be that straightforward and I fell in love with it ever since
+                I couldn’t believe coding could be that straightforward and I fell in love with it ever since outside of
+                this , I love football , basketball , reading literature ,questioning my existence , watching crime and
+                action series
+            </p>
+            <img src="images/portrait.png" alt="">
 
-                outside of this , I love football , basketball , reading literature ,questioning my existence , watching
-                crime and action series</p>
         </div>
+
     </main>
 
-    <Footer>
+    <Footer id="project-footer">
         <p>WEBSITE BY PRAISE IBHAZE</p>
         <p>ALL RIGHTS RESERVED @2025</p>
 
     </Footer>
-
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const els = document.querySelectorAll('.reveal');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+            if (reduceMotion) {
+                els.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        entry.target.classList.remove('is-visible'); // 👈 this makes it repeat
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15
+            });
+
+            els.forEach(el => observer.observe(el));
+        });
     </script>
+
 
 </body>
 

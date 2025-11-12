@@ -70,7 +70,8 @@ h3 {
   font-size: 5rem;
 }
 .Heading {
-  font-size: 13rem;
+  font-size: 12rem;
+  margin-bottom: -20px;
 }
 
 /* Loader */
@@ -154,7 +155,36 @@ nav ul li a::after {
 }
 
 /*--------------------------------------About Section --------------------------------------------*/
- 
+.project-section{
+  height: 1000px;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+} 
+.about-section{
+  height: 1000px;
+  background-color: #dbdbd1;
+  color: #000;
+  width: 100%;
+}
+/* start hidden & slightly shifted */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+/* when visible */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; transform: none; }
+}
 
 /*--/* Cursor follower (make sure it doesn't break layout) */
 .follower {
