@@ -45,13 +45,13 @@
                 <p>WEB DEVELOPMENT</p>
                 <p>UI/UX DESIGN </p>
                 <h2>CONTACT ME</h2>
-                <div class="qrcode">
-
-                </div>
+               <a href="mailto:ibhazepraise7@gmail.com" class="qrcode-link">
+                    <div class="qrcode"></div>
+                </a>
                 <script type="text/javascript">
                     const qrcodeEl = document.querySelector(".qrcode");
                     const qrcode = new QRCode(qrcodeEl, {
-                        text: "tel:+31687013161",
+                        text: "mailto:ibhazepraise7@gmail.com",
                         width: 100,
                         height: 100,
                         colorDark: "#000",
@@ -63,13 +63,24 @@
 
         </div>
         <div class="project-section dark-section reveal" id="projects">
-            <div id="projects">
-                <h2>PROJECTS</h2>
-                <ul>
-                    <li><a href="project1.html">project 1</a></li>
-                    <li><a href="project2.html">project 2</a></li>
-                    <li><a href="project3.html">project 3</a></li>
-                </ul>
+           <div class="projects-container">
+                <div class="project-item">
+                    <div class="project-title">
+                        <h1>PROJECTS</h1>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-item" data-image="images/wishntoss/Home Page.png">
+                <h2><a href="project1.html"><span>001</span> WISH 'N TOSS</a></h2>
+            </div>
+            <div class="project-item" data-image="images/gta/Index page.png">
+                <h2><a href="project2.html"><span>002</span> GTA</a></h2>
+            </div>
+            <div class="project-item" data-image="images/efteling.jpg">
+                <h2><a href="project3.html"><span>003</span> EFTELING</a></h2>
+            </div>
+            <div class="line"></div>
             </div>
         </div>
 

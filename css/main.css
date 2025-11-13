@@ -160,7 +160,7 @@ nav ul li a::after {
   background-color: #fff;
   color: #000;
   width: 100%;
-} 
+  align-items: left;} 
 .about-section{
   height: 1000px;
   background-color: #dbdbd1;
@@ -185,8 +185,48 @@ nav ul li a::after {
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; transform: none; }
 }
+.projects-container {
+    margin: 0 2%;
+}
+  
+.project-item h1{
+    font-weight:lighter;
+    font-size:12rem;
+ 
+}
+.project-item h2 {
+    font-size: 7rem;
+}
+.project-item h2 span {
+    font-size: 1rem; /* Smaller font size for numbers */
+    color: #dbdbd1; /* Optional: Distinct color for numbers */
+    font-weight: lighter; /* Match weight to overall design */
+    margin-right: 10px; /* Add spacing after the number */
+}
 
-/*--/* Cursor follower (make sure it doesn't break layout) */
+/* Link Styling */
+.project-item a {
+    text-decoration: none; /* Removes the underline */
+    color: #dbdbd1; /* Sets the color to A1E9A2 */
+}
+
+.project-item a:hover {
+    color: #dbdbd1; /* Optional: Slightly darker color on hover */
+}
+.project-title {
+    display: flex; /* Makes the container a flexbox */
+    align-items: center; /* Aligns items (text and line) vertically */  
+    gap: 10px; /* Adds space between the text and the line */
+}
+
+.project-title h1 {
+    font-weight: lighter;
+    font-size: 2rem;
+    white-space: nowrap; /* Ensures the text stays on one line */
+    margin: 0; /* Remove default margin */
+}
+
+/*-------------------------------------------/* Cursor follower  ------------------------- */
 .follower {
   position: absolute;
   width: 30px; /* Diameter of the outer circle */
