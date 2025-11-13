@@ -155,12 +155,35 @@ nav ul li a::after {
 }
 
 /*--------------------------------------About Section --------------------------------------------*/
-.project-section{
-  height: 1000px;
-  background-color: #fff;
+.project-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* aligns all content to the left */
+  justify-content: flex-start;
+  padding-left: 5%;
+  background-color: white;
+    overflow: hidden; /* hides oversized background text */
+}
+.project-section::before {
+  content: "PROJECTS";                /* background word */
+  position: absolute;
+  left: 3%;                           /* adjust horizontal position */
+  top: -60px;                         /* slightly above section content */
+ 
+  font-size: clamp(6rem, 20vw, 28rem); /* responsive giant text */
+  line-height: 0.8;
   color: #000;
+  opacity: 0.05;                      /* subtle and elegant */
+  pointer-events: none;
+  z-index: 0;                         /* keeps it behind everything */
+}
+.projects-container {
   width: 100%;
-  align-items: left;} 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* left-align inside container */
+}
+
 .about-section{
   height: 1000px;
   background-color: #dbdbd1;
@@ -189,41 +212,99 @@ nav ul li a::after {
     margin: 0 2%;
 }
   
-.project-item h1{
-    font-weight:lighter;
-    font-size:12rem;
  
+ 
+.project-item {
+  margin-bottom: 60px;   /* spacing between projects */
 }
+
 .project-item h2 {
-    font-size: 7rem;
+  font-size: 9rem;       /* make titles bigger */
+    /* aligns text to the left */
 }
+
 .project-item h2 span {
-    font-size: 1rem; /* Smaller font size for numbers */
-    color: #dbdbd1; /* Optional: Distinct color for numbers */
-    font-weight: lighter; /* Match weight to overall design */
-    margin-right: 10px; /* Add spacing after the number */
+  font-size: 2.5rem;
+  margin-right: 20px;
+  font-weight: lighter;
 }
+
 
 /* Link Styling */
 .project-item a {
     text-decoration: none; /* Removes the underline */
-    color: #dbdbd1; /* Sets the color to A1E9A2 */
+    color: #000; /* Sets the color to A1E9A2 */
 }
 
 .project-item a:hover {
-    color: #dbdbd1; /* Optional: Slightly darker color on hover */
+    color: #6d6d6d; /* Optional: Slightly darker color on hover */
 }
-.project-title {
-    display: flex; /* Makes the container a flexbox */
-    align-items: center; /* Aligns items (text and line) vertically */  
-    gap: 10px; /* Adds space between the text and the line */
-}
+ 
+ 
+
 
 .project-title h1 {
+  padding-top: 50px;
+    font-size: 15rem;
     font-weight: lighter;
-    font-size: 2rem;
-    white-space: nowrap; /* Ensures the text stays on one line */
-    margin: 0; /* Remove default margin */
+  
+}
+.about-section{
+  position: relative;
+  background-color: #eef0e2; /* soft tint like the screenshot */
+  color: #111;
+  padding: 120px 6% 180px;
+  overflow: hidden;
+}
+
+/* HUGE DECORATIVE WORD BEHIND CONTENT */
+.about-section::before{
+  content: "ABOUT";
+  position: absolute;
+  left: 2%;
+  top: -40px;
+   
+  font-size: clamp(6rem, 20vw, 28rem);
+  line-height: .8;
+  color: #000;
+  opacity: .08;                                      /* faint so it doesn’t compete */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SMALL SECTION LABEL (distinct from the list content) */
+.section-label{
+  position: relative;
+  z-index: 1;
+  margin: 0 0 32px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.4em;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* BODY COPY — centered block, readable width */
+.about-section p{
+  position: relative;
+  z-index: 1;
+  max-width: 62ch;                 /* clear reading width */
+  margin: 0 auto;                  /* center */
+  text-align: center;
+  text-transform: uppercase;       /* matches the look in the screenshot */
+  letter-spacing: .06em;
+  line-height: 1.9;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+}
+
+/* PORTRAIT ANCHORED BOTTOM-LEFT */
+.about-portrait{
+  position: absolute;
+  left: 3%;
+  bottom: -20px;
+  width: clamp(200px, 22vw, 360px);
+  filter: grayscale(100%);
+  z-index: 1;
 }
 
 /*-------------------------------------------/* Cursor follower  ------------------------- */
