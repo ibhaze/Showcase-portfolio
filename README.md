@@ -7,20 +7,25 @@ The site includes a custom cursor interaction, scroll-based animations, and deta
 
 # ✨ Features
 
-## 🎯 Cursor-follow.js
+## 🎯 Cursor-follow.js 
 - Smooth trailing outer circle  
 - Inner circle stays inside the main circle  
 - Cursor color changes based on background contrast  
 - Enlarged cursor when hovering links  
 
+
+
 ## ⏳ index.js
 - Counts from **0 → 100**  
 - Plays a drag-down animation  
 - Redirects to `homepage.html`  
+https://github.com/user-attachments/assets/362b64b8-af71-4ad1-9c22-a6246db93294
 
 ## 📌 Navigation
 - Logo + section anchors  
-- **ABOUT** and **PROJECTS** links  
+- **ABOUT** and **PROJECTS** links
+
+  
 
 ## 🔗 Contact Section
 - LinkedIn  
