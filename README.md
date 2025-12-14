@@ -11,7 +11,7 @@ The site includes a custom cursor interaction, scroll-based animations, and deta
 - Smooth trailing outer circle  
 - Inner circle stays inside the main circle  
 - Cursor color changes based on background contrast  
-- Enlarged cursor when hovering links  
+- Enlarged cursor when hovering links  <video controls src="Recording 2025-12-13 145050-1.mp4" title="Title"></video>
 
 ## ⏳ index.js
 - Counts from **0 → 100**  
@@ -19,6 +19,7 @@ The site includes a custom cursor interaction, scroll-based animations, and deta
 - Redirects to `homepage.html`  
 
 ## 📌 Navigation
+<video controls src="navi.mp4" title="Title">Navi demo</video> <video controls src="Recording 2025-12-13 145050.mp4" title="Title"></video>
 - Logo + section anchors  
 - **ABOUT** and **PROJECTS** links  
 
