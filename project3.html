@@ -13,7 +13,7 @@
 
 </head>
 
-<body class="homepage">
+<body class="projectpage">
     <main>
         <div class="follower">
             <div class="inner-circle"></div>
@@ -32,27 +32,206 @@
         <nav>
             <a href="index.html"><img class="logo" src="images/Logo.svg"></a>
             <ul>
-                <li> <a href="#">ABOUT</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
+                 <li> <a href="homepage.html#about" class="about">ABOUT</a></li>
+                <li><a href="homepage.html#projects" class="projects">PROJECTS</a></li>
             </ul>
         </nav>
-        <div class="fade-in">
+        <div class="project-main">
+
+            <div class="project-intro">
+                <div class="intro-container">
+                    <div class="projecthead">
+                        <h2>RFLCT</h2>
+                        <p>REFLECTION & JOURNALLING APP </p>
+                    </div>
+                    <div class="tools">
+                        <p class="section-title">Roles & Tools Used</p>
+
+                        <div class="tools-row">
+                            <div class="tools-container">
+                                <div class="text-block">
+                                    <h2>USER INTF.</h2>
+                                    <p>Designed a smooth functional user centric interface</p>
+                                </div>
+                                <img src="images/figma.svg" alt="Figma Logo" class="tools-logo">
+                            </div>
+
+                           
+
+                            <div class="tools-container">
+                                <div class="text-block">
+                                    <h2>USER EXP.</h2>
+                                    <p>Mapped out user journeys, scenarios, built around them</p>
+                                </div>
+                                <img src="images/road.svg" alt="Road Icon" class="tools-logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <section class="scroll-section process-visuals" id="process">
+                    <div class="section-wrap">
+                        <div class="img-cell"><img src="images/rflct/rflct1.png" alt=""></div>
+                        <div class="img-cell tall"><img src="images/rflct/rflct2.png" alt=""></div>
+                        <div class="img-cell"><img src="images/rflct/rflct3.png" alt=""></div>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="scroll-section outcomes" id="outcomes">
+                    <div class="section-wrap">
+                        <div class="mini-title-wrap">
+                            <h2 class="mini-title">ABOUT PROJECT</h2>
+
+                        </div>
+
+                        <p class="main-text">
+                          RFLCT is a  mobile concept for a privacy-first, self-led reflection app designed for both neurodiverse users and  users prone to cognitive overload.
+The project explored how audio and text-based journaling can support wellbeing without nudging, judgment, or therapy-like AI behavior.
+                            <br><br>
+      The project balances accessibility, cognitive load reduction, and user autonomy, while staying grounded in  user data and stakeholder constraints.
+                        </p>
+                    </div>
+                </section>
+                <!-- Section 3: Plant Care Screens -->
+                <section class="scroll-section screens" id="screens">
+                    <div class="section-wrap screens-wrap">
+                        <div class="screen-box left">
+                            <img src="images/rflct/rflct4.png" alt="Plant Care screen">
+                        </div>
+                        <div class="screen-box right">
+                            <img src="images/rflct/rflct5.png" alt="Auto watering confirmation screen">
+                        </div>
+                    </div>
+                </section>
+                <!-- Section 4: Plant Care Screens -->
+                <section class="scroll-section outcomes" id="outcomes">
+                    <div class="section-wrap">
+                        <div class="mini-title-wrap">
+                            <h2 class="mini-title">MAIN PROBLEM</h2>
+
+                        </div>
+
+                        <p class="main-text">
+             Most journaling tools assume users can easily organise their thoughts, write consistently, and feel safe expressing themselves. Research showed this assumption breaks down quickly, especially during moments of emotional or cognitive overload.
+                            <br><br>
+                          Students primarily reflected only after negative or impactful events . 
+
+The core challenge was to design a reflection system that supports clarity without directing behaviour, while remaining ethically responsible and technically realistic.
+                        </p>
+                    </div>
+                </section>
+                <!-- Section 5: Plant Care Screens -->
+                <section class="scroll-section process-visuals" id="process">
+                    <div class="section-wrap">
+                        <div class="img-cell"><img src="images/rflct/rflct6.png" alt=""></div>
+                        <div class="img-cell tall"><img src="images/rflct/rflct7.png" alt=""></div>
+                        <div class="img-cell"><img src="images/rflct/rflct8.png" alt=""></div>
+                    </div>
+                </section>
+                <!-- Section 6: Plant Care Screens -->
+                <section class="scroll-section outcomes" id="outcomes">
+                    <div class="section-wrap">
+                        <div class="mini-title-wrap">
+                            <h2 class="mini-title">END RESULTS</h2>
+
+                        </div>
+
+                        <p class="main-text" id="lastblock">
+                          To reduce cognitive load without nudging, optional neutral prompts were introduced to help users organise their thinking without influencing emotions or actions. AI is used only to structure and summarise user input, never to interpret feelings or give advice, and user reflections are clearly separated from AI-generated content to maintain trust and transparency.
+                            <br><br>
+                       The final outcome is a dual-input reflection system that allows users to switch between text and audio depending on context and comfort.
+                        </p>
+                    </div>
+                </section>
+            </div>
 
 
+
+
+            <a href="project2.html" class="projectchanger">
+                <span class="next">Next</span>
+                <h1>PARITY</h1>
+            </a>
 
         </div>
 
-        <h2>NEXT PROJECT</h2>
-        <ul>
-            <li><a href="project1.html">project 1</a></li>
-        </ul>
+
 
     </main>
 
-    <Footer>
-        <span class="left">DIRECTED BY PRAISE IBHAZE</span>
-        <span class="right">2025 ©</span>
+    <Footer id="project-footer">
+        <p>WEBSITE BY PRAISE IBHAZE</p>
+        <p>ALL RIGHTS RESERVED @2025</p>
+
     </Footer>
+    <script>
+        (function () {
+            // Reveal generic sections (replay on back/forward scroll)
+            const revealables = document.querySelectorAll('.reveal');
+
+            const sectionsObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        } else {
+                            entry.target.classList.remove('is-visible'); // allows replay
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -10% 0px'
+                }
+            );
+
+            revealables.forEach(el => sectionsObserver.observe(el));
+
+            // Stagger each tools card
+            const toolCards = document.querySelectorAll('.tools-container');
+            toolCards.forEach((card, idx) => card.setAttribute('data-stagger', idx));
+
+            // Observe each card individually so they replay when you revisit the first screen
+            const cardObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        } else {
+                            entry.target.classList.remove('is-visible'); // replay on return
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
+
+            toolCards.forEach(card => cardObserver.observe(card));
+        })();
+
+    </script>
+    <script>
+        // Scroll reveal that replays when you scroll up/down
+        const scrollSections = document.querySelectorAll('.scroll-section');
+
+        const scrollObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-visible');
+                    } else {
+                        entry.target.classList.remove('scroll-visible'); // replay on return
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        scrollSections.forEach(section => scrollObserver.observe(section));
+    </script>
+
 
 </body>
 
